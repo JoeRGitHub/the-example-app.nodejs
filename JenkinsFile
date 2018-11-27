@@ -2,10 +2,16 @@ pipeline {
   agent {
     // executes on an executor with the label 'some-label' or 'docker'
     label "master"
-  }
+   }
+  
+  options {
+  ansiColor('xterm')
+  timestamps
+    }
+
   tools {
   nodejs 'nodejs-11.2.0'
-}
+    }
   stages {
     stage("build") {
 
