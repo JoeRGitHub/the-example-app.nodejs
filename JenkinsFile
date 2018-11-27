@@ -3,8 +3,11 @@ pipeline {
     // executes on an executor with the label 'some-label' or 'docker'
     label "master"
   }
+  tools {
+  nodejs 'nodejs-11.2.0'
+}
   stages {
-    stage("foo") {
+    stage("build") {
 
      
       /*
@@ -14,8 +17,8 @@ pipeline {
        * the stage does have an agent, 'agent any'. If I use a different agent in a
        * subsequent stage I can use a different version of the tool or different tools.
        */
-  steps {
-        echo "hello"
+       steps {
+          sh "npm install"
       }
     }
   }
